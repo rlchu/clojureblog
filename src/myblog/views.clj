@@ -10,13 +10,14 @@
 (defn main-page []
   (layout "My Blog"
     [:h1 "My Blog"]
-    [:p "Welcome to my page"]))
+    [:p "Welcome to my page"]
+    (map #(post-summary %) (posts/all))))
 
 ; Post is a map corresponding to a record from the database
 (defn post-summary [post]
   (let [id (:id post)
         title (:title post)
-        body (:data post)
+        body (:body post)
         created_at (:created_at post)]
     [:section
       [:h3 title]
