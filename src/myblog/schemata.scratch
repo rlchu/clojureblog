@@ -1,0 +1,7 @@
+CREATE TABLE blogpost (
+    id integer PRIMARY KEY,
+    title text,
+    body text,
+    created_at TIME WITH TIME ZONE,
+    updated_at TIME WITH TIME ZONE
+);
