@@ -9,7 +9,7 @@
 (defn now [] (new java.util.Date))
 
 (defn create [params]  
-  (sql/insert! "postgresql://localhost:5432/" :blogpost (merge params {:id 99})))
+  (sql/insert! "postgresql://localhost:5432/" :blogpost params))
 
 
 

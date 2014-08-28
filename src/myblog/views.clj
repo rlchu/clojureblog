@@ -8,8 +8,6 @@
     [:head [:title title]]
     [:body content]))
     
-
-
 ; Post is a map corresponding to a record from the database
 (defn post-summary [post]
   (let [id (:id post)
