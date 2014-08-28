@@ -6,9 +6,12 @@
   (sql/query "postgresql://localhost:5432/home"
                   ["select * from blogpost"]))
 
-(defn add []  
-  (sql/insert! "postgresql://localhost:5432/" :blogpost {:id 34 :title "Hello  
-  	PO HOL HOL HOLu TEST!" :body "thmar mar mar"}))
+(defn now [] (new java.util.Date))
+
+(defn create [params]  
+  (sql/insert! "postgresql://localhost:5432/" :blogpost (merge params {:id 99})))
+
+
 
 ; (sql/db-do-commands "postgresql://localhost:5432/home"
 ;                            (sql/create-table-ddl :blogpost [:data :text]))

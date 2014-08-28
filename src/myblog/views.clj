@@ -1,6 +1,7 @@
 (ns myblog.views
   (:require [hiccup.core :refer (html)]
-  			[myblog.posts :as posts]    ))
+  			[myblog.posts :as posts]  
+        [hiccup.form :as f]  ))
 
 (defn layout [title & content]
   (html
@@ -36,3 +37,14 @@
     [:h2 "All my posts"]
     [:a {:href "/admin/add"} "Add"]
     (map #(post-summary %) (posts/all))))  
+
+(defn add-post []
+  (layout "My Blog - Add Post"
+    (list
+      [:h2 "Add Post"]
+      (f/form-to [:post "/admin/create"]
+        (f/label "title" "Title")
+        (f/text-field "title") [:br]
+        (f/label "body" "Body") [:br]
+        (f/text-area {:rows 20} "body") [:br]
+        (f/submit-button "Save")))))

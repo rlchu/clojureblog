@@ -12,9 +12,10 @@
 
 (defroutes protected-routes
   (GET "/admin" [] (views/admin-blog-page))
-  (GET "/admin/add" [] 
-     (do (posts/add))
-     (response/redirect "/admin2")))
+  (GET "/admin/add" [] (views/add-post))
+  (POST "/admin/create" [& params] 
+     (do (posts/create params))
+     (response/redirect "/admin")))
   
 (defroutes app-routes
   public-routes
