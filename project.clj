@@ -1,5 +1,5 @@
 (defproject myblog "0.2"
-  :description "writing my own blog"
+  :description "writing my own blog?"
   :url "http://localhost:3000"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.8"]
@@ -12,3 +12,9 @@
                         [ring-mock "0.1.5"]]}})
 
 
+; (set-user-agent! "Mynx Demo")
+
+; (->> "exquisitecorpse" subreddit-comments new-items
+;      (filter #(re-find #"encounter" (:body %)))
+;      (map #(reply % " what a strange, strange day"))
+;      dorun)

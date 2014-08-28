@@ -7,11 +7,7 @@
     [:head [:title title]]
     [:body content]))
     
-(defn main-page []
-  (layout "My Blog"
-    [:h1 "My Blog"]
-    [:p "Welcome to my page"]
-    (map #(post-summary %) (posts/all))))
+
 
 ; Post is a map corresponding to a record from the database
 (defn post-summary [post]
@@ -26,6 +22,13 @@
       [:section.actions
         [:a {:href (str "/admin/" id "/edit")} "Edit"] " / "
         [:a {:href (str "/admin/" id "/delete")} "Delete"]]]))
+
+
+(defn main-page []
+  (layout "My Blog"
+    [:h1 "My Blog"]
+    [:p "Welcome to my page"]
+    (map #(post-summary %) (posts/all))))
                 
 (defn admin-blog-page []
   (layout "My Blog - Administer Blog"
